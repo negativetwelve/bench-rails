@@ -5,3 +5,10 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+mark = User.create(name: "Mark Miyashita", email: "mark@mark.com", password: "password", password_confirmation: "password")
+
+todo = Project.create(name: "Todo")
+shopping_list = Project.create(name: "Shopping List")
+mark.projects << todo
+mark.projects << shopping_list
