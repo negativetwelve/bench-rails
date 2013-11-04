@@ -1,1 +1,14 @@
 <h1>Project</h1>
+
+<div class="row">
+  <div class="col-md-12">
+    <% if signed_in? && @project %>
+      <h1><%= @project.name %></h1>
+      <ul>
+        <% @tasks.each do |task| %>
+          <li><%= task.name %></li>
+        <% end %>
+      </ul>
+    <% end %>
+  </div>
+</div>
