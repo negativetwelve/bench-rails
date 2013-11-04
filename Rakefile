@@ -3,4 +3,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-SampleApp40::Application.load_tasks
+Bench::Application.load_tasks
