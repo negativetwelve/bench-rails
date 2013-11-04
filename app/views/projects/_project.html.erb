@@ -1,9 +1,9 @@
-<h1>Project</h1>
-
 <div class="row">
   <div class="col-md-12">
     <% if signed_in? && @project %>
       <h1><%= @project.name %></h1>
+      <h4><%= @project.description %></h4>
+      <%= link_to "Add Task", new_project_task_path(@project), class: "btn btn-primary" %>
       <ul>
         <% @tasks.each do |task| %>
           <li><%= task.name %></li>

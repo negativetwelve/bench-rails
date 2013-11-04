@@ -1,6 +1,10 @@
 Bench::Application.routes.draw do
   resources :users
-  resources :projects
+
+  resources :projects do
+    resources :tasks
+  end
+
   resources :sessions, only: [:new, :create, :destroy]
 
   root to: 'static_pages#home'
