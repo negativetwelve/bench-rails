@@ -12,3 +12,6 @@ todo = Project.create(name: "Todo")
 shopping_list = Project.create(name: "Shopping List")
 mark.projects << todo
 mark.projects << shopping_list
+
+do_everything = Task.create(name: "Do Everything", description: "this is how you do everything", requester: mark, assignee: mark)
+todo.tasks << do_everything
