@@ -3,7 +3,7 @@ class StaticPagesController < ApplicationController
   def home
     if signed_in?
       @projects = current_user.projects
-      @project = current_user.projects.first
+      @project = current_user.recent_project
       @tasks = @project.tasks
     end
   end

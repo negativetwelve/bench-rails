@@ -20,6 +20,13 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def select_project
+    @project = Project.find(params[:id])
+    current_user.recent_project = @project
+    current_user.save
+    redirect_to root_path
+  end
+
   private
 
     def project_params

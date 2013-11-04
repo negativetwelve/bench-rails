@@ -3,6 +3,7 @@ Bench::Application.routes.draw do
 
   resources :projects do
     resources :tasks
+    match '/select', to: 'projects#select_project', via: :get
   end
 
   resources :sessions, only: [:new, :create, :destroy]

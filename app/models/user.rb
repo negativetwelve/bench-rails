@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   has_and_belongs_to_many :projects
   has_many :requested_tasks, foreign_key: :requester_id
   has_many :assigned_tasks, foreign_key: :assignee_id
+  has_one :recent_project, foreign_key: :recent_project_id
 
   before_save { email.downcase! }
   before_create :create_remember_token
