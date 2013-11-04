@@ -8,6 +8,7 @@ class TasksController < ApplicationController
     @project = Project.find(params[:project_id])
     @task = Task.new(task_params)
     @task.project = @project
+    @task.requester = current_user
     if @task.save
       flash[:success] = "Successfully created task: #{@task.name}."
       redirect_to root_path
