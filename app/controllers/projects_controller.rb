@@ -21,9 +21,13 @@ class ProjectsController < ApplicationController
   end
 
   def select_project
-    @project = Project.find(params[:id])
+    @project = Project.find(params[:project_id])
     current_user.recent_project = @project
-    current_user.save
+    if current_user.save
+      flash[:success] = "Switched projects."
+    else
+      flash[:danger] = "Error switching projects #{current_user.errors.messages}."
+    end
     redirect_to root_path
   end
 
