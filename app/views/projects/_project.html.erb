@@ -1,14 +1,10 @@
-<div class="row">
-  <div class="col-md-12">
-    <% if signed_in? && @project %>
-      <h1><%= @project.name %></h1>
-      <h4><%= @project.description %></h4>
-      <%= link_to "Add Task", new_project_task_path(@project), class: "btn btn-primary" %>
-      <ul>
-        <% @tasks.each do |task| %>
-          <li><%= link_to task.name, project_task_select_path(@project, task), remote: true %></li>
-        <% end %>
-      </ul>
+<% if signed_in? && @project %>
+  <h1><%= @project.name %></h1>
+  <h4><%= @project.description %></h4>
+  <%= link_to "Add Task", new_project_task_path(@project), class: "btn btn-primary" %>
+  <ul>
+    <% @project.tasks.each do |task| %>
+      <li><%= link_to task.name, project_task_select_path(@project, task), remote: true %></li>
     <% end %>
-  </div>
-</div>
+  </ul>
+<% end %>

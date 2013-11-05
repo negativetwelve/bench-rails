@@ -24,9 +24,12 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:project_id])
     current_user.recent_project = @project
     if !current_user.save
-      flash[:danger] = "Error switching to project: #{@project.name}."
+      flash.now[:danger] = "Error switching to project: #{@project.name}."
     end
-    redirect_to root_path
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   private

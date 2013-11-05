@@ -6,7 +6,7 @@
     <% if signed_in? %>
       <ul>
         <% @projects.each do |project| %>
-          <li><%= link_to project.name, project_select_path(project) %></li>
+          <li><%= link_to project.name, project_select_path(project), remote: true %></li>
        <% end %>
       </ul>
     <% end %>
