@@ -6,7 +6,7 @@
       <%= link_to "Add Task", new_project_task_path(@project), class: "btn btn-primary" %>
       <ul>
         <% @tasks.each do |task| %>
-          <li><%= task.name %></li>
+          <li><%= link_to task.name, project_task_select_path(@project, task), remote: true %></li>
         <% end %>
       </ul>
     <% end %>

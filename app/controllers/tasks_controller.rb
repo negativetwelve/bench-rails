@@ -17,6 +17,14 @@ class TasksController < ApplicationController
     end
   end
 
+  def select_task
+    @task = Task.find(params[:task_id])
+    respond_to do |format|
+      format.html
+      format.js
+    end
+  end
+
   private
 
     def task_params

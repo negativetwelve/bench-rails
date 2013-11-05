@@ -23,10 +23,8 @@ class ProjectsController < ApplicationController
   def select_project
     @project = Project.find(params[:project_id])
     current_user.recent_project = @project
-    if current_user.save
-      flash[:success] = "Switched projects."
-    else
-      flash[:danger] = "Error switching projects #{current_user.errors.messages}."
+    if !current_user.save
+      flash[:danger] = "Error switching to project: #{@project.name}."
     end
     redirect_to root_path
   end
